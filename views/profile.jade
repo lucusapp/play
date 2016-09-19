@@ -1,0 +1,85 @@
+extends layout
+
+block content
+	div.container
+		nav.navbar.navbar-default.navbar-fixed-top
+			div.container
+				div.navbar-header
+					button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+						span.sr-only Toggle Navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='/home') PadelPlay
+				div.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						li
+							a(href='/home') Home
+						li
+							a(href='/createMatch') Create Match
+
+						form.navbar-form.navbar-left(action='/search', method='get')
+							div.form-group
+								input.form-control(type='text', placeholder='City', name='city')
+							button.btn.btn-default(type='submit') Search
+					ul.nav.navbar-nav.navbar-right
+
+						a.btn.btn-default.navbar-btn.btn-danger(href='/logout') Logout
+
+		div.page-header.text-center
+			h1
+				|  Profile Page
+
+
+		div.row
+			div.col-sm-7			
+				div.well
+					h3
+						span.fa.fa-user
+						|  Local
+	
+					p
+						strong id
+						| : 
+						id= user._id
+						br
+						strong email
+						| : 
+						email= user.local.email
+						br
+						strong password
+						| : 
+						password= user.local.password
+			
+
+			div.col-sm-7
+				div.well
+					h3
+						span.fa.fa-user
+						|  Fb
+					-if(!user.facebook.token)
+						-if(message.length>0)
+							div.alert.alert-danger 
+								message= message
+						a.btn.btn-primary(href='/connect/facebook') Connect to Facebook
+					-if(user.facebook.token)
+						img(src='http://graph.facebook.com/'+user.facebook.id+'/picture?type=large')
+						p
+							strong id
+							| : 
+							id= user.facebook.id
+							br
+							strong email
+							| : 
+							email= user.facebook.email
+							br
+							strong token
+							| : 
+							//-password= user.facebook.token
+							br
+							strong name
+							| :
+							name= user.facebook.name + ' ' + user.facebook.lastName
+
+						-if(user.local.password)
+							a.btn.btn-warning(href='/unlink/facebook') Unlink account
