@@ -13,7 +13,7 @@ passport.use(new FacebookSt({
   clientID : configAuth.facebookAuth.clientID,
   clientSecret: configAuth.facebookAuth.clientSecret,
   callbackURL: configAuth.facebookAuth.callbackURL,
-  profileFields: ['id', 'displayName', 'email', 'username', 'name', 'gender', 'profileUrl', 'photos'],
+  profileFields: ['id', 'displayName', 'email', 'name', 'gender', 'profileUrl', 'photos'],
   passReqToCallback: true
 
 },

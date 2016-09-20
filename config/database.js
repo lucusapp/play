@@ -4,7 +4,7 @@
 module.exports = function(mongoose){
 
 	var uristring =
-	  'mongodb://lucusapp:romimu8888@ds017886.mlab.com:17886/passportfb';
+	  
 	  process.env.MONGOHQ_URL ||
 	  'mongodb://localhost/kdd';
 
