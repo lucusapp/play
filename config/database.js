@@ -4,9 +4,10 @@
 module.exports = function(mongoose){
 
 	var uristring =
-	  
+
 	  process.env.MONGOHQ_URL ||
-	  'mongodb://localhost/kdd';
+
+		'mongodb://gavialus:romimu8888@ds035036.mlab.com:35036/heroku_8rm2rlw8'
 
 	mongoose.connect(uristring, function(err, res){
 		if(err){
