@@ -15,9 +15,9 @@ block content
 				div.navbar-collapse.collapse
 					ul.nav.navbar-nav
 						li
-							a(href='/home') Home
+							a(href='/home') Inicio
 						li
-							a(href='/createMatch') Create Match
+							a(href='/createMatch') Crear Partido
 
 						form.navbar-form.navbar-left(action='/search', method='get')
 							div.form-group
@@ -26,7 +26,7 @@ block content
 					ul.nav.navbar-nav.navbar-right
 						a.btn.btn-default.navbar-btn(href='/profile')= user.local.name + ' ' + user.local.lastName
 						| 
-						a.btn.btn-default.navbar-btn.btn-danger(href='/logout') Logout
+						a.btn.btn-default.navbar-btn.btn-danger(href='/logout') Sair
 
 
 		div.well
