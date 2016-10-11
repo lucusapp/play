@@ -14,7 +14,7 @@ module.exports = function(app, passsport) {
 	//View for create Match
 	app.get('/createMatch', isLoggedIn, function(req, res) {
 		res.render('createMatch.jade', {
-			title: 'Create Match'
+			title: 'Crear Partido'
 		});
 	});
 
@@ -77,7 +77,7 @@ module.exports = function(app, passsport) {
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
-	// if user is authenticated in the session, carry on 
+	// if user is authenticated in the session, carry on
 	if (req.isAuthenticated())
 		return next();
 

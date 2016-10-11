@@ -45,7 +45,6 @@ module.exports = function(app, passsport){
 	        passport.authenticate('facebook', {
 	        	successRedirect: '/home',
 	        	failureRedirect: '/profile',
-						scope: 'email'
 	        }));
 
 

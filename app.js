@@ -19,7 +19,6 @@ var flash = require('connect-flash');
 
 
 var configPS = require('./config/passport')(passport);
-var configFb = require('./config/facebook');
 
 var configDB = require('./config/database.js')(mongoose);
 
