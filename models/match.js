@@ -10,7 +10,8 @@ var matchSchema = new Schema({
 
 	city: {type: String},
 	club: {type: String},
-	price: {type: Number},
+	date: {type: Date},
+	fecha: {type: Date},
 	cat: {type: String},
 	players: {type: [String]},
 	owner: {type: String}

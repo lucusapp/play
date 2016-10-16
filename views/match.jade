@@ -25,7 +25,7 @@ block content
 							button.btn.btn-default(type='submit') Search
 					ul.nav.navbar-nav.navbar-right
 						a.btn.btn-default.navbar-btn(href='/profile')= user.local.name + ' ' + user.local.lastName
-						| 
+
 						a.btn.btn-default.navbar-btn.btn-danger(href='/logout') Sair
 
 
@@ -33,28 +33,32 @@ block content
 			div.row
 				div.col-sm-3
 					p
-						h3.strong 
+						h3.strong
 							a(href='/match/'+match._id)= match.city
-						
+
 						strong Club
 						| :
 						club= match.club
 						br
-						strong Price
+						strong date
 						| :
-						price= match.price
-						| €
+						price= match.date
+						| :
 						br
 						strong Nivel
 						| :
 						lvl= match.cat
+						br
+						strong fecha
+						| :
+						fecha= match.fecha
 						br
 						strong Jugadores
 						| :
 						br
 						p1= match.players[0]
 						br
-						p2= match.players[1] 
+						p2= match.players[1]
 						br
 						p3= match.players[2]
 						br
@@ -76,20 +80,19 @@ block content
 			-if(match.players.indexOf(user.local.email)>=0 && match.owner!=user.local.email)
 				a.btn.btn-warning(href='/notplay/'+match._id) Don't play
 			-if(match.owner===user.local.email)
-				| 
-				a.btn.btn-danger(href='/deleteMatch/'+match._id) Remove 
+				|
+				a.btn.btn-danger(href='/deleteMatch/'+match._id) Remove
 
 		div.well
-			h3.strong 	
+			h3.strong
 				each comment, i in comments
 					div.comments
 						div.titlec
 							auth= comment.author
-							//date= comment.created.toUTCString()	
+							//date= comment.created.toUTCString()
 							comm= comment.content
 						-if(comment.authorEmail === user.local.email)
 							a.remove(href='/deleteComment/'+comment._id) Remove
 				div.newComm
 					form(action='/addComment/'+match._id, method='post')
 						input.form-control(type='float', name='commentContent', placeholder='Write a comment', required)
-				

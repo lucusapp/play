@@ -5,7 +5,8 @@ exports.createMatch = function(req, res, user) {
 	var mat = new Match({
 		city: req.body.city,
 		club: req.body.club,
-		price: req.body.price,
+		date: req.body.date,
+		fecha: req.body.fecha,
 		cat: req.body.cat,
 		players: user.local.email,
 		owner: user.local.email
