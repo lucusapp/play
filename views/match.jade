@@ -15,9 +15,9 @@ block content
 				div.navbar-collapse.collapse
 					ul.nav.navbar-nav
 						li
-							a(href='/home') Inicio
+							a(href='/home') Home
 						li
-							a(href='/createMatch') Crear Partido
+							a(href='/createMatch') Create Match
 
 						form.navbar-form.navbar-left(action='/search', method='get')
 							div.form-group
@@ -26,7 +26,7 @@ block content
 					ul.nav.navbar-nav.navbar-right
 						a.btn.btn-default.navbar-btn(href='/profile')= user.local.name + ' ' + user.local.lastName
 
-						a.btn.btn-default.navbar-btn.btn-danger(href='/logout') Sair
+						a.btn.btn-default.navbar-btn.btn-danger(href='/logout') Logout
 
 
 		div.well
@@ -36,25 +36,16 @@ block content
 						h3.strong
 							a(href='/match/'+match._id)= match.city
 
-						strong Club
-						| :
+						strong Club:
 						club= match.club
 						br
-						strong date
-						| :
-						price= match.date
-						| :
+						strong Price:
+						price= match.price
 						br
-						strong Nivel
-						| :
+						strong Level:
 						lvl= match.cat
 						br
-						strong fecha
-						| :
-						fecha= match.fecha
-						br
-						strong Jugadores
-						| :
+						strong Players:
 						br
 						p1= match.players[0]
 						br
@@ -80,7 +71,7 @@ block content
 			-if(match.players.indexOf(user.local.email)>=0 && match.owner!=user.local.email)
 				a.btn.btn-warning(href='/notplay/'+match._id) Don't play
 			-if(match.owner===user.local.email)
-				|
+
 				a.btn.btn-danger(href='/deleteMatch/'+match._id) Remove
 
 		div.well

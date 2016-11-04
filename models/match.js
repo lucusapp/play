@@ -1,4 +1,4 @@
-//USER MODEL
+
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -10,8 +10,7 @@ var matchSchema = new Schema({
 
 	city: {type: String},
 	club: {type: String},
-	date: {type: Date},
-	fecha: {type: Date},
+	price: {type: Number},
 	cat: {type: String},
 	players: {type: [String]},
 	owner: {type: String}

@@ -24,10 +24,10 @@ block content
 							button.btn.btn-default(type='submit') Search
 					ul.nav.navbar-nav.navbar-right
 						a.btn.btn-default.navbar-btn(href='/profile')= user.local.name + ' ' + user.local.lastName
-						| 
+
 						a.btn.btn-default.navbar-btn.btn-danger(href='/logout') Logout
 						-if(user.group=='admin')
-							| 
+
 							a.btn.btn-default.navbar-btn(href='/admin') Admin
 		div.row
 			each match, i in matchs
@@ -37,28 +37,24 @@ block content
 							div.alert.alert-danger
 								messageGame= messageGame
 						p
-							h3.strong 
+							h3.strong
 								a(href='/match/'+matchs[i]._id)= matchs[i].city
-							
-							strong Club
-							| :
+
+							strong Club:
 							club= matchs[i].club
 							br
-							strong Price
-							| :
+							strong Price:
 							price= matchs[i].price
-							| €
+
 							br
-							strong Level
-							| :
+							strong Level:
 							lvl= matchs[i].cat
 							br
-							strong Players
-							| :
+							strong Players:
 							br
 							p1= matchs[i].players[0]
 							br
-							p2= matchs[i].players[1] 
+							p2= matchs[i].players[1]
 							br
 							p3= matchs[i].players[2]
 							br
@@ -69,9 +65,5 @@ block content
 						-if(matchs[i].players.indexOf(user.local.email)>=0 && matchs[i].owner!=user.local.email)
 							a.btn.btn-warning(href='/notplay/'+matchs[i]._id) Don't play
 						-if(matchs[i].owner===user.local.email)
-							| 
-							a.btn.btn-danger(href='/deletematch/'+matchs[i]._id) Remove 
-							
-						
-						
 
+						a.btn.btn-danger(href='/deletematch/'+matchs[i]._id) Remove

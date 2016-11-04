@@ -14,7 +14,7 @@ module.exports = function(app, passsport) {
 	//View for create Match
 	app.get('/createMatch', isLoggedIn, function(req, res) {
 		res.render('createMatch.jade', {
-			title: 'Crear Partido'
+			title: 'Create Match'
 		});
 	});
 
