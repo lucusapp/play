@@ -66,11 +66,11 @@ block content
 							div.col-sm-6.player
 								p= match.players[3]
 
-			-if(match.players.indexOf(user.local.email)==-1 && match.players.length<4)
+			-if(match.players.indexOf(user.local.name)==-1 && match.players.length<4)
 				a.btn.btn-success(href='/play/'+match._id) Play
-			-if(match.players.indexOf(user.local.email)>=0 && match.owner!=user.local.email)
+			-if(match.players.indexOf(user.local.name)>=0 && match.owner!=user.local.name)
 				a.btn.btn-warning(href='/notplay/'+match._id) Don't play
-			-if(match.owner===user.local.email)
+			-if(match.owner===user.local.name)
 
 				a.btn.btn-danger(href='/deleteMatch/'+match._id) Remove
 
@@ -82,7 +82,7 @@ block content
 							auth= comment.author
 							//date= comment.created.toUTCString()
 							comm= comment.content
-						-if(comment.authorEmail === user.local.email)
+						-if(comment.authorEmail === user.local.name)
 							a.remove(href='/deleteComment/'+comment._id) Remove
 				div.newComm
 					form(action='/addComment/'+match._id, method='post')
